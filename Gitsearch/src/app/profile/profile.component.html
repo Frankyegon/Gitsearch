@@ -1,0 +1,57 @@
+<form action="" class="gitform">
+  <div class="form-group" class="gitform">
+    <input type="text" class="form-control" placeholder="Github Username" [(ngModel)]="username" name="username" (keyup)='findProfile()'>
+  </div>
+</form>
+
+<div class="container">
+<div *ngIf="profile">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <p>ID: {{profile.id}}</p> 
+      <p>Username: {{profile.login}}</p>
+    </div>
+    
+    <div class="panel-body">
+    
+      <div class="row">
+        <div class="col-sm-3">
+          <img src="{{profile.avatar_url}}" class="img-circle img-responsive" alt="Profile Image">
+        </div>
+      
+    
+    <div class="col-sm-2">
+      
+    </div>
+    <div class="col-sm-7">
+      <ul class="list-group">
+        <li class="list-group-item list-success">Followers: {{profile.followers}}</li>
+        <li class="list-group-item">Following: {{profile.following}}</li>
+        <li class="list-group-item">Public repos: {{profile.public_repos}}</li>
+        <li class="list-group-item">Created Date: {{profile.created_at}}</li>
+      </ul> 
+      <p><a href="{{profile.html_url}}" target="_blank" class="btn btn-success">Click to view profile on Github</a></p> 
+    </div>
+    
+    <div class="panel panel-default text-center" >
+      <div class="panel-heading">
+        <h3 class="panel-title">Repositories</h3>
+      </div>
+      <div class="panel-body" *ngFor = 'let repo of repos'>
+        <ul class="list-group">
+          <li>
+            {{repo.name}} <a href="{{repo.html_url}}" class="btn btn-sm btn-success" target="_blank">View  repo on Github</a> 
+          </li>
+        </ul> 
+        <p>{{repo.description}}</p>
+      </div>
+    </div> 
+  
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+

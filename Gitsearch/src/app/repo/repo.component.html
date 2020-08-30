@@ -1,0 +1,28 @@
+<div class="container">
+  <div>
+    <h1>Github Search Repositories</h1>
+    <hr>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <app-repo-form (addRepo)="addNewRepo($event)"></app-repo-form>
+      </div>
+      <div class="col-md-6">
+       
+        <div *ngFor='let repo of repos, let i=index'>
+          <h6 id={{i}}>{{repo.name}} created on {{repo.completeDate|date|uppercase}}</h6>
+          <button class="btn btn-primary" (click)='goToUrl(repo.id)'>View Details</button>
+          <button class="btn btn-outline-danger" (click)='deleteRepo(i)'>Delete Repo</button>
+        </div>
+      
+      <p *ngIf='repos.length > 2'>You have more than 2 repositories</p>
+    </div>  
+    </div>
+    <div class="row">
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">{{quote.quote}}</p>
+        <footer class="blockquote-footer"><cite>{{quote.author}}</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+</div>

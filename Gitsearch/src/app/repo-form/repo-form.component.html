@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <h2 class="text-center">Create a new Repository</h2>
+    <hr>
+    <form (ngSubmit)='submitRepo()' #repoForm='ngForm'>
+        <div class="form-group">
+  
+            <label for="name">User Name</label>
+            <input type="text" required class="form-control" id="name" [(ngModel)]="newRepo.name" name="name" #name='ngModel'>
+            {{newRepo.name}}
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Repository name is required</div>
+        </div>
+        
+        <button type="submit" class="btn btn-success">Search Repositories</button>
+    </form>
+  </div>
